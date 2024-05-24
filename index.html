@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laurin 30v Turnaus</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #bracket {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .match {
+            border: 1px solid white;
+            padding: 10px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Laurin 30v Turnaus</h1>
+    <div id="passwordPrompt" class="hidden">
+        <label for="password">Syötä salasana: </label>
+        <input type="password" id="password">
+        <button onclick="checkPassword()">Lähetä</button>
+    </div>
+    <div id="bracket">
+        <div class="match">Joukkue 1 vs Joukkue 2</div>
+        <div class="match">Joukkue 3 vs Joukkue 4</div>
+        <div class="match">Joukkue 5 vs Joukkue 6</div>
+        <div class="match">Joukkue 7 vs Joukkue 8</div>
+        <div class="match">Joukkue 9 vs Joukkue 10</div>
+        <div class="match">Joukkue 11 vs Joukkue 12</div>
+        <div class="match">Joukkue 13 vs Joukkue 14</div>
+        <div class="match">Joukkue 15 vs Joukkue 16</div>
+    </div>
+    <button id="editButton" class="hidden" onclick="enableEditing()">Muokkaa kaaviota</button>
+    <script>
+        const correctPassword = 'villepekka';
+
+        function checkPassword() {
+            const password = document.getElementById('password').value;
+            if (password === correctPassword) {
+                document.getElementById('passwordPrompt').classList.add('hidden');
+                document.getElementById('editButton').classList.remove('hidden');
+            } else {
+                alert('Väärä salasana');
+            }
+        }
+
+        function enableEditing() {
+            const matches = document.getElementsByClassName('match');
+            for (let match of matches) {
+                match.setAttribute('contenteditable', 'true');
+                match.style.border = '1px dashed white';
+            }
+        }
+
+        window.onload = function() {
+            document.getElementById('passwordPrompt').classList.remove('hidden');
+        };
+    </script>
+</body>
+</html>
