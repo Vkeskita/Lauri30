@@ -13,14 +13,20 @@
         }
         #bracket {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(4, 200px);
             grid-gap: 20px;
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
+        }
+        .round {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
         }
         .match {
             border: 1px solid white;
             padding: 10px;
+            margin: 10px 0;
         }
         .hidden {
             display: none;
@@ -35,14 +41,29 @@
         <button onclick="checkPassword()">Lähetä</button>
     </div>
     <div id="bracket">
-        <div class="match">Joukkue 1 vs Joukkue 2</div>
-        <div class="match">Joukkue 3 vs Joukkue 4</div>
-        <div class="match">Joukkue 5 vs Joukkue 6</div>
-        <div class="match">Joukkue 7 vs Joukkue 8</div>
-        <div class="match">Joukkue 9 vs Joukkue 10</div>
-        <div class="match">Joukkue 11 vs Joukkue 12</div>
-        <div class="match">Joukkue 13 vs Joukkue 14</div>
-        <div class="match">Joukkue 15 vs Joukkue 16</div>
+        <div class="round" id="round1">
+            <div class="match" id="match1">Joukkue 1 vs Joukkue 2</div>
+            <div class="match" id="match2">Joukkue 3 vs Joukkue 4</div>
+            <div class="match" id="match3">Joukkue 5 vs Joukkue 6</div>
+            <div class="match" id="match4">Joukkue 7 vs Joukkue 8</div>
+            <div class="match" id="match5">Joukkue 9 vs Joukkue 10</div>
+            <div class="match" id="match6">Joukkue 11 vs Joukkue 12</div>
+            <div class="match" id="match7">Joukkue 13 vs Joukkue 14</div>
+            <div class="match" id="match8">Joukkue 15 vs Joukkue 16</div>
+        </div>
+        <div class="round" id="round2">
+            <div class="match" id="match9"></div>
+            <div class="match" id="match10"></div>
+            <div class="match" id="match11"></div>
+            <div class="match" id="match12"></div>
+        </div>
+        <div class="round" id="round3">
+            <div class="match" id="match13"></div>
+            <div class="match" id="match14"></div>
+        </div>
+        <div class="round" id="round4">
+            <div class="match" id="match15"></div>
+        </div>
     </div>
     <button id="editButton" class="hidden" onclick="enableEditing()">Muokkaa kaaviota</button>
     <script>
